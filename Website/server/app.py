@@ -76,6 +76,6 @@ def invalid(e):
 def hello_home():
     return "<p>Hello Home!<p>"
 def main():
-    app.run()
+    app.run(host='0.0.0.0')
 
 main()
