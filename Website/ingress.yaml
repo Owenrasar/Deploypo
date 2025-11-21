@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: deploypo
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          #I don't have to use /s. I could use /
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: client
+                port:
+                  number: 80
+          - path: /messages
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port:
+                  number: 80
