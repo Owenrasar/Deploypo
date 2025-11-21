@@ -1,7 +1,7 @@
 console.log("connected")
 const acounts_div = document.querySelector("#acounts")
 const logged_h2 = document.querySelector("#logged")
-const url = "http://127.0.0.1:5000";
+const url = "http://144.38.201.55:80";
 loggedIn = true
 let loggedNum = -1;
 let loggedName = "";
@@ -156,7 +156,7 @@ function doEdit(){
     editing = false
     let username = document.querySelector("#login_username").value
     let password = document.querySelector("#login_password").value
-    fetch("http://127.0.0.1:5000/messages").then(function(response){
+    fetch(url+"/messages").then(function(response){
         response.json()
             .then(function(data){
                 console.log(data)
@@ -176,7 +176,7 @@ function doEdit(){
 
 
                     //ship it off
-                    fetch("http://127.0.0.1:5000/messages/"+loggedNum, {
+                    fetch(url+ "/messages/"+loggedNum, {
                         method: "PUT",
                         body: data,
                         headers: {
